@@ -2,13 +2,19 @@ public class DataSet {
 	public int data1, data2, data3, data4, nSize;
 	public String sData1, sData2, sData3, sData4, sNSize;
 	public String sbit;
+	private int protocol;
+	private int priority;
+	private String type;
 	
-	public DataSet(int data1, int data2, int data3, int data4, int nSize){
+	public DataSet(int protocol, int data1, int data2, int data3, int data4, int nSize, String type, int priority){
+		this.protocol = protocol;
 		this.data1 = data1; 
 		this.data2 = data2; 
 		this.data3 = data3; 
 		this.data4 = data4;
 		this.nSize = nSize;
+		this.type = type;
+		this.priority = priority;
 		convertBinary();
 		sumBit();
 	}
@@ -30,6 +36,19 @@ public class DataSet {
 		int outport = (data1 + data2 + data3 + data4 + nSize) % 24;
 		return outport;
 	}
+	
+	public int getPriority(){
+		return priority;
+	}
+	
+	public String getType(){
+		return type;
+	}
+	
+	public int getProtocol(){
+		return protocol;
+	}
+	
 	/*
 	public int getData1(){
 		return data1;
